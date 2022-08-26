@@ -6,14 +6,12 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:string";
+@use "@unsass/breakpoint";
 @use "@unsass/css";
+@use "./variables";
+@use "./config";
 
 @mixin variant($variants...) {
-    //@content($variants);
-    $context: ();
-
-    @debug $variants;
-
     @content;
 
     @if & {
@@ -53,21 +51,14 @@
             }
 
             @if $variant == "responsive" {
-                @include root-selector(
-                    $name: $selector-name,
-                    $scope: "md"
-                ) {
-                    @media screen and (min-width: 768px) {
-                        @content;
-                    }
-                }
-
-                @include root-selector(
-                    $name: $selector-name,
-                    $scope: "lg"
-                ) {
-                    @media screen and (min-width: 960px) {
-                        @content;
+                @each $key, $value in breakpoint.get-screens() {
+                    @include root-selector(
+                        $name: $selector-name,
+                        $scope: $key
+                    ) {
+                        @include breakpoint.up($key) {
+                            @content;
+                        }
                     }
                 }
             }

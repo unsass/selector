@@ -30,7 +30,8 @@
         "stylelint-config-unsass": "^1.0.0"
     },
     "dependencies": {
-        "@unsass/css": "^2.2.0-beta.1",
+        "@unsass/breakpoint": "^2.2.0",
+        "@unsass/css": "^2.2.0-beta.2",
         "sass": "^1.52.3"
     },
     "keywords": [

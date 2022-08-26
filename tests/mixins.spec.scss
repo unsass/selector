@@ -3,11 +3,12 @@
 // ============================================================================================= //
 
 @use "true" as *;
+@use "./config";
 @use "../index" as variant;
 
 @include describe("mixins") {
     @include describe("variant()") {
-        @include it("Sould return variant with pseudo classes.") {
+        @include it("Should return variant with pseudo classes.") {
             @include assert {
                 @include output(false) {
                     .foo {
@@ -37,7 +38,7 @@
             }
         }
 
-        @include it("Sould return variant with resposive.") {
+        @include it("Should return variant with resposive.") {
             @include assert {
                 @include output(false) {
                     .foo {
@@ -52,13 +53,13 @@
                         color: darkcyan;
                     }
 
-                    @media screen and (min-width: 768px) {
+                    @media (min-width: 768px) {
                         .md\:foo {
                             color: darkcyan;
                         }
                     }
 
-                    @media screen and (min-width: 960px) {
+                    @media (min-width: 960px) {
                         .lg\:foo {
                             color: darkcyan;
                         }
