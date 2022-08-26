@@ -183,4 +183,26 @@
             }
         }
     }
+
+    @include describe("media()") {
+        @include it("Should return media selector.") {
+            @include assert {
+                @include output(false) {
+                    .foo {
+                        @include selector.media("screen") {
+                            color: darkcyan;
+                        }
+                    }
+                }
+
+                @include expect(false) {
+                    @media screen {
+                        .foo {
+                            color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

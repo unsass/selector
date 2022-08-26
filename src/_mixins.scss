@@ -111,3 +111,9 @@
     }
 }
 
+@mixin media($args) {
+    @media #{$args} {
+        @content;
+    }
+}
+
