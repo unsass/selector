@@ -1,11 +1,6 @@
-@use "@unsass/breakpoint";
 @use "../index" as variant;
 
-//@include variant.configure((
-//    "lg": 1000px
-//));
-
-@include breakpoint.config((
+@include variant.configure((
     "md": 768px,
-    "lg": 960px
+    "lg": 1024px
 ), true);

@@ -8,4 +8,4 @@
 ///
 /// @see {mixin} breakpoint.config
 ///
-@include breakpoint.config(variables.$screens);
+@include breakpoint.config(variables.$screens, variables.$screens-reset);

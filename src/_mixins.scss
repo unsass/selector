@@ -9,15 +9,12 @@
 @use "@unsass/breakpoint";
 @use "@unsass/css";
 @use "./variables";
-@use "./config";
 
 @mixin variant($variants...) {
     @content;
 
     @if & {
         $selector-name: string.slice("#{list.nth(&, 1)}", 2);
-
-        @debug $selector-name;
 
         @each $variant in $variants {
             @if $variant == "hover" {
@@ -91,9 +88,6 @@
 }
 
 @mixin render-variant($variants: ()) {
-    @debug "render-variant";
-    @debug $variants;
-
     @if & {
         @content;
 
@@ -122,12 +116,22 @@
 }
 
 @mixin root-selector($args...) {
-    @debug "root-selector";
-    @debug meta.keywords($args);
-
     @at-root {
         @include css.set-selector(map.get(meta.keywords($args), "name"), map.get(meta.keywords($args), "scope"), $pseudo-class: map.get(meta.keywords($args), "pseudo-class")) {
             @content;
         }
+    }
+}
+
+///
+/// Configure.
+///
+@mixin configure($screens: (), $screens-reset: false) {
+    @if $screens {
+        variables.$screens: $screens;
+    }
+
+    @if $screens-reset {
+        variables.$screens-reset: $screens-reset;
     }
 }

@@ -4,6 +4,7 @@
 
 @use "true" as *;
 @use "./config";
+@use "../styles";
 @use "../index" as variant;
 
 @include describe("mixins") {
@@ -59,7 +60,7 @@
                         }
                     }
 
-                    @media (min-width: 960px) {
+                    @media (min-width: 1024px) {
                         .lg\:foo {
                             color: darkcyan;
                         }
