@@ -9,7 +9,7 @@
 
 @include describe("mixins") {
     @include describe("variant()") {
-        @include it("Should return variant with pseudo classes.") {
+        @include it("Should return variant with pseudo-classes.") {
             @include assert {
                 @include output(false) {
                     .foo {
