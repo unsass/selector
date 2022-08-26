@@ -1,0 +1,113 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:meta";
+@use "sass:selector";
+@use "sass:string";
+@use "@unsass/utilities";
+@use "./functions";
+
+///
+/// @example - scss
+///   @include create("foo") {
+///     color: darkcyan;
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: darkcyan;
+///   }
+///
+/// @example - scss
+///   @include create("foo", "md") {
+///     color: darkcyan;
+///   }
+///
+/// @example - css
+///   .md:foo {
+///     color: darkcyan;
+///   }
+///
+/// @example - scss
+///   @include create("foo", $pseudo-class: "hover") {
+///     color: darkcyan;
+///   }
+///
+/// @example - css
+///   .foo:hover {
+///     color: darkcyan;
+///   }
+///
+/// @example - scss
+///   @include create("foo", $pseudo-element: "before") {
+///     color: darkcyan;
+///   }
+///
+/// @example - css
+///   .foo::before {
+///     color: darkcyan;
+///   }
+///
+/// @param {string} $selector - Selector name.
+/// @param {string} $scope - Selector affix value.
+/// @param {string} $separator - Selector affix separator.
+/// @param {string} $pseudo-class - Selector pseudo-class.
+/// @param {string} $pseudo-element - Selector pseudo-element.
+/// @param {boolean} $suffix - Use suffix instead of prefix.
+///
+/// @see {function} functions.pseudo-class
+/// @see {function} functions.pseudo-element
+/// @see {function} functions.number
+/// @see {function} utilities.string-replace
+///
+/// @access public
+///
+@mixin create($selector, $scope: null, $separator: ":", $suffix: false, $pseudo-class: null, $pseudo-element: null) {
+    @if ($pseudo-class and $suffix) or ($pseudo-element and $suffix) {
+        @error "You cannot add a suffix with a selector that already has a pseudo-class or a pseudo-element."
+    }
+
+    $class-selector: string.slice($selector, 1, 1)  == ".";
+
+    @if $class-selector {
+        $selector: string.slice($selector, 2);
+    }
+
+    ///
+    /// Set pseudo-{classes, elements}.
+    ///
+
+    @if $pseudo-class {
+        $selector: functions.pseudo-class($selector, $pseudo-class);
+    }
+
+    @if $pseudo-element {
+        $selector: functions.pseudo-element($selector, $pseudo-element);
+    }
+
+    ///
+    /// Set scope.
+    ///
+
+    @if $scope and not $suffix {
+        @if meta.type-of(functions.number(string.slice($scope, 1, $end-at: 1))) == "number" {
+            $scope: utilities.string-replace(\3 #{string.unquote($scope)}, " ");
+        }
+
+        $selector: selector.append("#{$scope}\\#{$separator}", $selector);
+    }
+
+    @if $scope and $suffix {
+        $selector: selector.append($selector, "\\#{$separator}#{$scope}");
+    }
+
+    ///
+    /// Set selector.
+    ///
+
+    #{functions.to-class($selector)} {
+        @content;
+    }
+}
+

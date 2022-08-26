@@ -1,0 +1,186 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as selector;
+
+@include describe("mixins") {
+    @include describe("create()") {
+        @include it("Should return class selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return prefixed class selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "md") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .md\:foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return prefixed class selector with numbers.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "2xl") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .\32 xl\:foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return prefixed class selector with custom separator.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "md", "@") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .md\@foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return suffixed class selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "md", $suffix: true) {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo\:md {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return suffixed class selector with numbers.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "2xl", $suffix: true) {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo\:2xl {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return suffixed class selector with custom separator.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "md", "@", $suffix: true) {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo\@md {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return class selector with pseudo-classes.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", $pseudo-class: "hover") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo:hover {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return prefixed class selector with pseudo-classes.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "hover", $pseudo-class: "hover") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .hover\:foo:hover {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return class selector with pseudo-elements.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", $pseudo-element: "before") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo::before {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return prefixed class selector with pseudo-elements.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", "before", $pseudo-element: "before") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .before\:foo::before {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+}
