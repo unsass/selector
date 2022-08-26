@@ -1,0 +1,70 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as variant;
+
+@include describe("mixins") {
+    @include describe("variant()") {
+        @include it("Sould return variant with pseudo classes.") {
+            @include assert {
+                @include output(false) {
+                    .foo {
+                        @include variant.variant("hover", "focus", "active") using($props...) {
+                            color: darkcyan;
+                        }
+                    }
+                }
+
+                @include expect(false) {
+                    .foo {
+                        color: darkcyan;
+                    }
+
+                    .hover\:foo:hover {
+                        color: darkcyan;
+                    }
+
+                    .focus\:foo:focus {
+                        color: darkcyan;
+                    }
+
+                    .active\:foo:active {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Sould return variant with resposive.") {
+            @include assert {
+                @include output(false) {
+                    .foo {
+                        @include variant.variant("responsive") using($props...) {
+                            color: darkcyan;
+                        }
+                    }
+                }
+
+                @include expect(false) {
+                    .foo {
+                        color: darkcyan;
+                    }
+
+                    @media screen and (min-width: 768px) {
+                        .md\:foo {
+                            color: darkcyan;
+                        }
+                    }
+
+                    @media screen and (min-width: 960px) {
+                        .lg\:foo {
+                            color: darkcyan;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

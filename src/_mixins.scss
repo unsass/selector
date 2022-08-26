@@ -1,0 +1,142 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+@use "sass:string";
+@use "@unsass/css";
+
+@mixin variant($variants...) {
+    //@content($variants);
+    $context: ();
+
+    @debug $variants;
+
+    @content;
+
+    @if & {
+        $selector-name: string.slice("#{list.nth(&, 1)}", 2);
+
+        @debug $selector-name;
+
+        @each $variant in $variants {
+            @if $variant == "hover" {
+                @include root-selector(
+                    $name: $selector-name,
+                    $scope: $variant,
+                    $pseudo-class: $variant
+                ) {
+                    @content;
+                }
+            }
+
+            @if $variant == "focus" {
+                @include root-selector(
+                    $name: $selector-name,
+                    $scope: $variant,
+                    $pseudo-class: $variant
+                ) {
+                    @content;
+                }
+            }
+
+            @if $variant == "active" {
+                @include root-selector(
+                    $name: $selector-name,
+                    $scope: $variant,
+                    $pseudo-class: $variant
+                ) {
+                    @content;
+                }
+            }
+
+            @if $variant == "responsive" {
+                @include root-selector(
+                    $name: $selector-name,
+                    $scope: "md"
+                ) {
+                    @media screen and (min-width: 768px) {
+                        @content;
+                    }
+                }
+
+                @include root-selector(
+                    $name: $selector-name,
+                    $scope: "lg"
+                ) {
+                    @media screen and (min-width: 960px) {
+                        @content;
+                    }
+                }
+            }
+        }
+    } @else {
+        //@each $variant in $variants {
+        //    @if $variant == "hover" {
+        //        //.hover {
+        //        //    @content($variant);
+        //        //}
+        //
+        //        @at-root {
+        //            @include mixins.set-selector("foo2", $pseudo-class: "hover") {
+        //                @content;
+        //            }
+        //        }
+        //    }
+        //
+        //    //@if $variant == "focus" {
+        //    //    .focus {
+        //    //        @content($variant);
+        //    //    }
+        //    //}
+        //}
+    }
+
+    //@include render-variant($variants) using($props...) {
+    //    @content($props...);
+    //}
+}
+
+@mixin render-variant($variants: ()) {
+    @debug "render-variant";
+    @debug $variants;
+
+    @if & {
+        @content;
+
+        @each $variant in $variants {
+            @if $variant == "hover" {
+                &:hover {
+                    @content($variant);
+                }
+            }
+
+            @if $variant == "focus" {
+                &:focus {
+                    @content($variant);
+                }
+            }
+        }
+    } @else {
+        @content;
+
+        @each $variant in $variants {
+            @if $variant == "hover" {
+                @content($variant);
+            }
+        }
+    }
+}
+
+@mixin root-selector($args...) {
+    @debug "root-selector";
+    @debug meta.keywords($args);
+
+    @at-root {
+        @include css.set-selector(map.get(meta.keywords($args), "name"), map.get(meta.keywords($args), "scope"), $pseudo-class: map.get(meta.keywords($args), "pseudo-class")) {
+            @content;
+        }
+    }
+}
