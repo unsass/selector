@@ -1,0 +1,20 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as selector;
+
+@include describe("functions") {
+    @include describe("to-class()") {
+        @include it("Should return class selector.") {
+            @include assert-equal(selector.to-class("foo"), ".foo");
+        }
+    }
+
+    @include describe("to-id()") {
+        @include it("Should return id selector.") {
+            @include assert-equal(selector.to-id("foo"), "#foo");
+        }
+    }
+}
