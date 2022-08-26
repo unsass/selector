@@ -1,8 +1,7 @@
 {
-    "private": true,
     "name": "@unsass/selector",
     "version": "0.0.0",
-    "description": "",
+    "description": "Sass functions and mixins to manage CSS selectors.",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
         "lint": "npm-run-all --parallel lint:*",
@@ -36,6 +35,7 @@
     "keywords": [
         "sass",
         "selector",
+        "class",
         "unsass",
         "front-end"
     ],
@@ -47,5 +47,13 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/unsass/selector.git"
+    },
+    "files": [
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ],
+    "publishConfig": {
+        "access": "public"
     }
 }
