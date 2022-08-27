@@ -111,6 +111,23 @@
     }
 }
 
+///
+/// @example - scss
+///   .foo {
+///     @include selector.media("screen") {
+///       color: darkcyan;
+///     }
+///   }
+///
+/// @example - css
+///   @media screen {
+///     .foo {
+///       color: darkcyan;
+///     }
+///   }
+///
+/// @access public
+///
 @mixin media($args) {
     @media #{$args} {
         @content;
