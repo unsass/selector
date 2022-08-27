@@ -16,18 +16,46 @@
 // Public functions
 // ------------------------------------------------------------------------- //
 
+///
+/// @example - scss
+///   $selector: pseudo-class(".foo", "hover");
+///   // ".foo:hover"
+///
+/// @access public
+///
 @function pseudo-class($selector, $pseudo-class) {
     @return selector.append($selector, ":#{$pseudo-class}");
 }
 
+///
+/// @example - scss
+///   $selector: pseudo-class(".foo", "before");
+///   // ".foo::before"
+//
+/// @access public
+///
 @function pseudo-element($selector, $pseudo-element) {
     @return selector.append($selector, "::#{$pseudo-element}");
 }
 
+///
+/// @example - scss
+///   $selector: to-id("foo");
+///   // "#foo"
+//
+/// @access public
+///
 @function to-id($selector) {
     @return "##{$selector}";
 }
 
+///
+/// @example - scss
+///   $selector: to-class("foo");
+///   // ".foo"
+///
+/// @access public
+///
 @function to-class($selector) {
     @return ".#{$selector}";
 }
