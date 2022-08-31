@@ -1,6 +1,6 @@
 {
     "name": "@unsass/selector",
-    "version": "1.0.0-beta.2",
+    "version": "1.0.0",
     "description": "Sass functions and mixins to manage CSS selectors.",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
