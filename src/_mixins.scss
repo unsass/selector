@@ -62,8 +62,10 @@
 /// @access public
 ///
 @mixin create($selector, $scope: null, $separator: ":", $suffix: false, $pseudo-class: null, $pseudo-element: null, $root: false) {
-    @if ($pseudo-class and $suffix) or ($pseudo-element and $suffix) {
-        @error "You cannot add a suffix with a selector that already has a pseudo-class or a pseudo-element."
+    @if $pseudo-class and $suffix {
+        @error "You cannot add a suffix with a selector that already has a pseudo-class."
+    } @else if $pseudo-element and $suffix {
+        @error "You cannot add a suffix with a selector that already has a pseudo-element."
     }
 
     $selector: if(type.is-list($selector), "#{list.nth($selector, 1)}", $selector);
@@ -79,9 +81,7 @@
 
     @if $pseudo-class {
         $selector: functions.pseudo-class($selector, $pseudo-class);
-    }
-
-    @if $pseudo-element {
+    } @else if $pseudo-element {
         $selector: functions.pseudo-element($selector, $pseudo-element);
     }
 
