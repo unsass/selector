@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/unsass/selector/compare/v1.1.0...v1.2.0) (2023-03-20)
+
+
+### Features
+
+* allow `&` nesting selector ([20d12a2](https://github.com/unsass/selector/commit/20d12a2302e8a8c31a60e19094bbeb2aa16af1b1))
+
+
+### Code Refactoring
+
+* add better error messages ([6ae5295](https://github.com/unsass/selector/commit/6ae529558dc230a0cdf7677b7fa226e2270e5436))
+* removed unneeded sass import ([b817859](https://github.com/unsass/selector/commit/b817859233c967a78f0fba7752cbaedda112abff))
+
 ## [1.1.0](https://github.com/unsass/selector/compare/v1.0.0...v1.1.0) (2023-03-20)
 
 
