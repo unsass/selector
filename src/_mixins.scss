@@ -4,8 +4,8 @@
 
 @use "sass:meta";
 @use "sass:selector";
-@use "sass:string";
-@use "@unsass/utilities";
+@use "@unsass/string";
+@use "@unsass/types" as type;
 @use "./functions";
 
 ///
@@ -58,8 +58,6 @@
 ///
 /// @see {function} functions.pseudo-class
 /// @see {function} functions.pseudo-element
-/// @see {function} functions.number
-/// @see {function} utilities.string-replace
 ///
 /// @access public
 ///
@@ -91,8 +89,8 @@
     ///
 
     @if $scope and not $suffix {
-        @if meta.type-of(functions.number(string.slice($scope, 1, $end-at: 1))) == "number" {
-            $scope: utilities.string-replace(\3 #{string.unquote($scope)}, " ");
+        @if type.is-number(string.to-number(string.slice($scope, 1, $end-at: 1))) {
+            $scope: string.replace(\3 #{string.unquote($scope)}, " ");
         }
 
         $selector: selector.append("#{$scope}\\#{$separator}", $selector);
