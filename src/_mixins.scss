@@ -10,7 +10,7 @@
 
 ///
 /// @example - scss
-///   @include create("foo") {
+///   @include selector.create("foo") {
 ///     color: darkcyan;
 ///   }
 ///
@@ -20,7 +20,7 @@
 ///   }
 ///
 /// @example - scss
-///   @include create("foo", "md") {
+///   @include selector.create("foo", "md") {
 ///     color: darkcyan;
 ///   }
 ///
@@ -30,7 +30,7 @@
 ///   }
 ///
 /// @example - scss
-///   @include create("foo", $pseudo-class: "hover") {
+///   @include selector.create("foo", $pseudo-class: "hover") {
 ///     color: darkcyan;
 ///   }
 ///
@@ -40,7 +40,7 @@
 ///   }
 ///
 /// @example - scss
-///   @include create("foo", $pseudo-element: "before") {
+///   @include selector.create("foo", $pseudo-element: "before") {
 ///     color: darkcyan;
 ///   }
 ///

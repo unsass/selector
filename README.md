@@ -13,3 +13,29 @@ Sass functions and mixins to manage CSS selectors.
 ```shell
 npm install @unsass/selector
 ```
+
+## Usage
+
+```scss
+@use "@unsass/selector";
+
+@include selector.create("foo") {
+    color: darkcyan;
+}
+```
+
+### Result
+
+```css
+.foo {
+    color: darkcyan;
+}
+```
+
+## API
+
+### Sass mixins
+
+| Mixin                                                                            | Description                                                |
+|----------------------------------------------------------------------------------|------------------------------------------------------------|
+| `create($selector, $scope, $separator, $suffix, $pseudo-class, $pseudo-element)` | Sets new CSS selector with class scope and pseudo options. |

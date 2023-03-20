@@ -23,7 +23,7 @@
             }
         }
 
-        @include it("Should return prefixed class selector.") {
+        @include it("Should return a scoped class selector.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "md") {
@@ -39,7 +39,7 @@
             }
         }
 
-        @include it("Should return prefixed class selector with numbers.") {
+        @include it("Should return a scoped class selector with numbers.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "2xl") {
@@ -55,7 +55,7 @@
             }
         }
 
-        @include it("Should return prefixed class selector with custom separator.") {
+        @include it("Should return a scoped class selector with custom separator.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "md", "@") {
@@ -71,7 +71,7 @@
             }
         }
 
-        @include it("Should return suffixed class selector.") {
+        @include it("Should return a suffixed scoped class selector.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "md", $suffix: true) {
@@ -87,7 +87,7 @@
             }
         }
 
-        @include it("Should return suffixed class selector with numbers.") {
+        @include it("Should return a suffixed scoped class selector with numbers.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "2xl", $suffix: true) {
@@ -103,7 +103,7 @@
             }
         }
 
-        @include it("Should return suffixed class selector with custom separator.") {
+        @include it("Should return a suffixed scoped class selector with custom separator.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "md", "@", $suffix: true) {
@@ -135,7 +135,7 @@
             }
         }
 
-        @include it("Should return prefixed class selector with pseudo-classes.") {
+        @include it("Should return a scoped class selector with pseudo-classes.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "hover", $pseudo-class: "hover") {
@@ -167,7 +167,7 @@
             }
         }
 
-        @include it("Should return prefixed class selector with pseudo-elements.") {
+        @include it("Should return a scoped class selector with pseudo-elements.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "before", $pseudo-element: "before") {
