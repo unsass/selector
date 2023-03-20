@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/unsass/selector/compare/v1.0.0...v1.1.0) (2023-03-20)
+
+
+### Features
+
+* use `@unsass/string` instead of specific function ([af2dd21](https://github.com/unsass/selector/commit/af2dd217a4acea2e2734037749b010f2d73f02ff))
+
 ## 1.0.0 (2022-08-31)
 
 
