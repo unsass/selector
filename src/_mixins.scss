@@ -108,11 +108,11 @@
     $selector: functions.to-class($selector);
 
     @if $root {
-        #{$selector} {
+        @at-root #{$selector} {
             @content;
         }
     } @else {
-        @at-root #{$selector} {
+        #{$selector} {
             @content;
         }
     }

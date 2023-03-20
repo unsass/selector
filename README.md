@@ -45,7 +45,7 @@ Define your own scope separator character.
 ```scss
 @use "@unsass/selector";
 
-selector.create("foo", "md", "@") {
+@include selector.create("foo", "md", "@") {
     color: darkcyan;
 }
 ```
@@ -65,7 +65,7 @@ Define the scope value has a prefix on selector.
 ```scss
 @use "@unsass/selector";
 
-selector.create("foo", "md", $suffix: true) {
+@include selector.create("foo", "md", $suffix: true) {
     color: darkcyan;
 }
 ```
@@ -85,7 +85,7 @@ Define the pseudo class suffix.
 ```scss
 @use "@unsass/selector";
 
-selector.create("foo", "hover", $pseudo-class: "hover") {
+@include selector.create("foo", "hover", $pseudo-class: "hover") {
     color: darkcyan;
 }
 ```
@@ -105,7 +105,7 @@ Define the pseudo element suffix.
 ```scss
 @use "@unsass/selector";
 
-selector.create("foo", "before", $pseudo-element: "before") {
+@include selector.create("foo", "before", $pseudo-element: "before") {
     color: darkcyan;
 }
 ```
@@ -114,6 +114,30 @@ selector.create("foo", "before", $pseudo-element: "before") {
 
 ```css
 .before\:foo::before {
+    color: darkcyan;
+}
+```
+
+### `$root`
+
+Wrap the selector with `@at-root` rule before code output.
+
+```scss
+@use "@unsass/selector";
+
+.foo {
+    .bar {
+        @include selector.create(&, "md", $root: true) {
+            color: darkcyan;
+        }
+    }
+}
+```
+
+### Result
+
+```css
+.md\:foo .bar {
     color: darkcyan;
 }
 ```

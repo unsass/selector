@@ -43,7 +43,7 @@
             @include assert {
                 @include output(false) {
                     .foo {
-                        @include selector.create(&, "md") {
+                        @include selector.create(&, "md", $root: true) {
                             color: darkcyan;
                         }
                     }
