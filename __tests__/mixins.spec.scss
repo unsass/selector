@@ -57,7 +57,7 @@
             }
         }
 
-        @include it("Should return a scoped class selector with numbers.") {
+        @include it("Should return a scoped class selector with number.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "2xl") {
@@ -105,7 +105,7 @@
             }
         }
 
-        @include it("Should return a suffixed scoped class selector with numbers.") {
+        @include it("Should return a suffixed scoped class selector with number.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "2xl", $suffix: true) {
@@ -137,7 +137,7 @@
             }
         }
 
-        @include it("Should return class selector with pseudo-classes.") {
+        @include it("Should return class selector with pseudo-classe.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", $pseudo-class: "hover") {
@@ -153,7 +153,7 @@
             }
         }
 
-        @include it("Should return a scoped class selector with pseudo-classes.") {
+        @include it("Should return a scoped class selector with pseudo-classe.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "hover", $pseudo-class: "hover") {
@@ -169,7 +169,7 @@
             }
         }
 
-        @include it("Should return class selector with pseudo-elements.") {
+        @include it("Should return class selector with pseudo-element.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", $pseudo-element: "before") {
@@ -185,7 +185,7 @@
             }
         }
 
-        @include it("Should return a scoped class selector with pseudo-elements.") {
+        @include it("Should return a scoped class selector with pseudo-element.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "before", $pseudo-element: "before") {
@@ -203,7 +203,7 @@
     }
 
     @include describe("media()") {
-        @include it("Should return media selector.") {
+        @include it("Should return `@media` selector.") {
             @include assert {
                 @include output(false) {
                     .foo {
