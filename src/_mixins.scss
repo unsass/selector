@@ -50,7 +50,7 @@
 ///   }
 ///
 /// @param {string} $selector - Selector name.
-/// @param {string} $scope - Selector affix value.
+/// @param {string, list} $scope - Selector affix value.
 /// @param {string} $separator - Selector affix separator.
 /// @param {string} $pseudo-class - Selector pseudo-class.
 /// @param {string} $pseudo-element - Selector pseudo-element.
@@ -90,15 +90,39 @@
     ///
 
     @if $scope and not $suffix {
-        @if type.is-number(string.to-number(string.slice($scope, 1, $end-at: 1))) {
-            $scope: string.replace(\3 #{string.unquote($scope)}, " ");
+        $class: "";
+
+        @if type.is-list($scope) {
+            @each $key in $scope {
+                @if type.is-number(string.to-number(string.slice($key, 1, $end-at: 1))) {
+                    $key: string.replace(\3 #{string.unquote($key)}, " ");
+                }
+
+                $class: $class + "#{$key}\\#{$separator}";
+            }
+        } @else {
+            @if type.is-number(string.to-number(string.slice($scope, 1, $end-at: 1))) {
+                $scope: string.replace(\3 #{string.unquote($scope)}, " ");
+            }
+
+            $class: "#{$scope}\\#{$separator}";
         }
 
-        $selector: selector.append("#{$scope}\\#{$separator}", $selector);
+        $selector: selector.append($class, $selector);
     }
 
     @if $scope and $suffix {
-        $selector: selector.append($selector, "\\#{$separator}#{$scope}");
+        $class: "";
+
+        @if type.is-list($scope) {
+            @each $key in $scope {
+                $class: $class + "\\#{$separator}#{$key}";
+            }
+        } @else {
+            $class: "\\#{$separator}#{$scope}";
+        }
+
+        $selector: selector.append($selector, $class);
     }
 
     ///

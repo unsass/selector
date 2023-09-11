@@ -39,6 +39,22 @@
             }
         }
 
+        @include it("Should return a scoped multiclasses selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", ("md", "lg")) {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .md\:lg\:foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
         @include it("Should return class selector with `&` nesting.") {
             @include assert {
                 @include output(false) {
