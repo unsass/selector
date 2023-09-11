@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/unsass/selector/compare/v1.2.0...v1.3.0) (2023-09-11)
+
+
+### Features
+
+* **create:** add list option for `$scope` parameter ([ebd78c1](https://github.com/unsass/selector/commit/ebd78c1705a2271b4d8bad8b2441936abc928284))
+
+
+### Build System
+
+* **deps:** bump to `sass` 1.66.1 ([b9ff3d5](https://github.com/unsass/selector/commit/b9ff3d5ccad6ab1a5fba427cfdc753a09f50418d))
+* **deps:** prevent dependencies vulnerabilities ([610177d](https://github.com/unsass/selector/commit/610177d035c8d255e836846fe4a5b7c9be932c08))
+
 ## [1.2.0](https://github.com/unsass/selector/compare/v1.1.0...v1.2.0) (2023-03-20)
 
 
