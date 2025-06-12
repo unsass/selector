@@ -31,7 +31,7 @@
 /// @example - scss
 ///   $selector: pseudo-class(".foo", "before");
 ///   // ".foo::before"
-//
+///
 /// @access public
 ///
 @function pseudo-element($selector, $pseudo-element) {
@@ -42,7 +42,7 @@
 /// @example - scss
 ///   $selector: to-id("foo");
 ///   // "#foo"
-//
+///
 /// @access public
 ///
 @function to-id($selector) {
