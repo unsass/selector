@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2026-01-03)
+
+* ci: add `release.config.js` ([6fb94ff](https://github.com/unsass/selector/commit/6fb94ff))
+* ci: lint code ([e7c5ae5](https://github.com/unsass/selector/commit/e7c5ae5))
+* ci: rename `node.js.yml` to `publish.yml` ([bdfb2a2](https://github.com/unsass/selector/commit/bdfb2a2))
+* ci: update `commit-msg` ([7f78c1c](https://github.com/unsass/selector/commit/7f78c1c))
+* feat: use the plain-CSS if() syntax ([bfda10e](https://github.com/unsass/selector/commit/bfda10e))
+* chore: switch to ESM ([faee4d8](https://github.com/unsass/selector/commit/faee4d8))
+* chore(deps-dev): bump to `@commitlint/cli` 20.3.0 ([581c39e](https://github.com/unsass/selector/commit/581c39e))
+* chore(deps-dev): bump to `sass-true` 10.1.0 ([125f7b4](https://github.com/unsass/selector/commit/125f7b4))
+* chore(deps-dev): bump to `stylelint` 16.26.1 ([9249a20](https://github.com/unsass/selector/commit/9249a20))
+* chore(deps-dev): prevent dependencies vulnerabilities ([311b5f1](https://github.com/unsass/selector/commit/311b5f1))
+* chore(deps): bump to `@commitlint/cli` 20.1.0 ([7873ab3](https://github.com/unsass/selector/commit/7873ab3))
+* chore(deps): bump to `sass-true` 8.1.0 ([796746d](https://github.com/unsass/selector/commit/796746d))
+* chore(deps): bump to `sass-true` 9.0.0 ([c6f302c](https://github.com/unsass/selector/commit/c6f302c))
+* chore(deps): bump to `sass` 1.97.1 ([3dfbf70](https://github.com/unsass/selector/commit/3dfbf70))
+* chore(deps): bump to `semantic-release` 25.0.1 ([93db310](https://github.com/unsass/selector/commit/93db310))
+* chore(deps): bump to `stylelint-config-unsass` 2.0.0 ([ccb922e](https://github.com/unsass/selector/commit/ccb922e))
+* chore(deps): bump to `stylelint-config-unsass` 2.2.0 ([04e20fa](https://github.com/unsass/selector/commit/04e20fa))
+* chore(deps): clean `package-lock.json` ([65d4a3d](https://github.com/unsass/selector/commit/65d4a3d))
+* chore(deps): prevent dependencies vulnerabilities ([b3fbab9](https://github.com/unsass/selector/commit/b3fbab9))
+* test(deps): switch from jest to vitest ([8c3ed03](https://github.com/unsass/selector/commit/8c3ed03))
+
 ## [1.3.0](https://github.com/unsass/selector/compare/v1.2.0...v1.3.0) (2023-09-11)
 
 

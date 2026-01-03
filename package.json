@@ -1,6 +1,6 @@
 {
     "name": "@unsass/selector",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "Sass functions and mixins to manage CSS selectors.",
     "type": "module",
     "scripts": {
