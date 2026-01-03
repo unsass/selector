@@ -30,7 +30,7 @@
     "dependencies": {
         "@unsass/string": "^1.4.2",
         "@unsass/types": "^1.0.2",
-        "sass": "^1.66.1"
+        "sass": "^1.97.1"
     },
     "keywords": [
         "sass",
