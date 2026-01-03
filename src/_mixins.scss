@@ -68,7 +68,7 @@
         @error "You cannot add a suffix with a selector that already has a pseudo-element.";
     }
 
-    $selector: if(type.is-list($selector), "#{list.nth($selector, 1)}", $selector);
+    $selector: if(sass(type.is-list($selector)): "#{list.nth($selector, 1)}"; else: $selector);
     $class-selector: string.slice($selector, 1, 1) == ".";
 
     @if $class-selector {
