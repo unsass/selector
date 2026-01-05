@@ -15,7 +15,14 @@ export default {
         [
             '@semantic-release/commit-analyzer',
             {
-                preset: 'conventionalcommits'
+                preset: 'conventionalcommits',
+                releaseRules: [
+                    {
+                        type: 'chore',
+                        scope: 'deps',
+                        release: 'minor'
+                    }
+                ]
             }
         ],
         [
@@ -31,6 +38,11 @@ export default {
                         {
                             type: 'fix',
                             section: 'Bug Fixes'
+                        },
+                        {
+                            type: 'chore',
+                            scope: 'deps',
+                            section: 'Dependencies'
                         }
                     ]
                 }
