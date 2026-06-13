@@ -25,7 +25,7 @@
 ///   }
 ///
 /// @example - css
-///   .md:foo {
+///   .md\:foo {
 ///     color: darkcyan;
 ///   }
 ///
@@ -50,11 +50,12 @@
 ///   }
 ///
 /// @param {string} $selector - Selector name.
-/// @param {string, list} $scope - Selector affix value.
-/// @param {string} $separator - Selector affix separator.
-/// @param {string} $pseudo-class - Selector pseudo-class.
-/// @param {string} $pseudo-element - Selector pseudo-element.
-/// @param {boolean} $suffix - Use suffix instead of prefix.
+/// @param {string | list} $scope [null] - Selector affix value.
+/// @param {string} $separator [":"] - Selector affix separator.
+/// @param {boolean} $suffix [false] - Use suffix instead of prefix.
+/// @param {string} $pseudo-class [null] - Selector pseudo-class.
+/// @param {string} $pseudo-element [null] - Selector pseudo-element.
+/// @param {boolean} $root [false] - Wrap the output in an `@at-root` rule.
 ///
 /// @see {function} functions.pseudo-class
 /// @see {function} functions.pseudo-element
@@ -156,6 +157,8 @@
 ///       color: darkcyan;
 ///     }
 ///   }
+///
+/// @param {string} $args - The media query condition.
 ///
 /// @access public
 ///

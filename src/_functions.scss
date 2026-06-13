@@ -1,5 +1,5 @@
 // ============================================================================================= //
-//                                            MIXINS                                             //
+//                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
 @use "sass:map";
@@ -21,6 +21,11 @@
 ///   $selector: pseudo-class(".foo", "hover");
 ///   // ".foo:hover"
 ///
+/// @param {string} $selector - Base selector.
+/// @param {string} $pseudo-class - Pseudo-class name (without the leading colon).
+///
+/// @return {string} The selector suffixed with the pseudo-class.
+///
 /// @access public
 ///
 @function pseudo-class($selector, $pseudo-class) {
@@ -29,8 +34,13 @@
 
 ///
 /// @example - scss
-///   $selector: pseudo-class(".foo", "before");
+///   $selector: pseudo-element(".foo", "before");
 ///   // ".foo::before"
+///
+/// @param {string} $selector - Base selector.
+/// @param {string} $pseudo-element - Pseudo-element name (without the leading colons).
+///
+/// @return {string} The selector suffixed with the pseudo-element.
 ///
 /// @access public
 ///
@@ -43,6 +53,10 @@
 ///   $selector: to-id("foo");
 ///   // "#foo"
 ///
+/// @param {string} $selector - Selector name (without the leading `#`).
+///
+/// @return {string} The id selector.
+///
 /// @access public
 ///
 @function to-id($selector) {
@@ -53,6 +67,10 @@
 /// @example - scss
 ///   $selector: to-class("foo");
 ///   // ".foo"
+///
+/// @param {string} $selector - Selector name (without the leading `.`).
+///
+/// @return {string} The class selector.
 ///
 /// @access public
 ///
