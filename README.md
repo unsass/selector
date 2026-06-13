@@ -243,3 +243,60 @@ Appends a pseudo-element to a selector.
 
 $selector: selector.pseudo-element(".foo", "before"); // ".foo::before"
 ```
+
+### `is($selector, $args…)`
+
+Restricts the selector with an `:is()` pseudo-class matching any of the given selectors.
+
+```scss
+@use "@unsass/selector";
+
+$selector: selector.is("article", "h1", "h2"); // "article:is(h1, h2)"
+```
+
+### `where($selector, $args…)`
+
+Like `is()`, but with zero specificity through the `:where()` pseudo-class.
+
+```scss
+@use "@unsass/selector";
+
+$selector: selector.where(".prose", "a", "button"); // ".prose:where(a, button)"
+```
+
+### `has($selector, $args…)`
+
+Restricts the selector to elements matching the relational `:has()` condition.
+
+```scss
+@use "@unsass/selector";
+
+$selector: selector.has(".card", "> img"); // ".card:has(> img)"
+```
+
+### `exclude($selector, $args…)`
+
+Excludes the given selectors through a `:not()` pseudo-class. Named `exclude` because `not` is a reserved Sass keyword.
+
+```scss
+@use "@unsass/selector";
+
+$selector: selector.exclude(".btn", ".btn--disabled"); // ".btn:not(.btn--disabled)"
+$selector: selector.exclude(".item", ".a", ".b"); // ".item:not(.a, .b)"
+```
+
+These helpers return selectors, so they compose:
+
+```scss
+@use "@unsass/selector";
+
+#{selector.exclude(selector.is(".x", "a", "b"), ".y")} {
+    color: darkcyan;
+}
+```
+
+```css
+.x:is(a, b):not(.y) {
+    color: darkcyan;
+}
+```

@@ -50,6 +50,72 @@
 
 ///
 /// @example - scss
+///   $selector: is("article", "h1", "h2");
+///   // "article:is(h1, h2)"
+///
+/// @param {string} $selector - Base selector.
+/// @param {arglist} $args - One or more selectors to match.
+///
+/// @return {selector} The selector restricted to the `:is()` matches.
+///
+/// @access public
+///
+@function is($selector, $args...) {
+    @return selector.append($selector, ":is(#{$args})");
+}
+
+///
+/// @example - scss
+///   $selector: where(".prose", "a", "button");
+///   // ".prose:where(a, button)"
+///
+/// @param {string} $selector - Base selector.
+/// @param {arglist} $args - One or more selectors to match (with zero specificity).
+///
+/// @return {selector} The selector restricted to the `:where()` matches.
+///
+/// @access public
+///
+@function where($selector, $args...) {
+    @return selector.append($selector, ":where(#{$args})");
+}
+
+///
+/// @example - scss
+///   $selector: has(".card", "> img");
+///   // ".card:has(> img)"
+///
+/// @param {string} $selector - Base selector.
+/// @param {arglist} $args - One or more relative selectors the element must contain.
+///
+/// @return {selector} The selector restricted to elements matching the `:has()` condition.
+///
+/// @access public
+///
+@function has($selector, $args...) {
+    @return selector.append($selector, ":has(#{$args})");
+}
+
+///
+/// Negation pseudo-class. Outputs the CSS `:not()` (renamed because `not` is a reserved Sass keyword).
+///
+/// @example - scss
+///   $selector: exclude(".btn", ".btn--disabled");
+///   // ".btn:not(.btn--disabled)"
+///
+/// @param {string} $selector - Base selector.
+/// @param {arglist} $args - One or more selectors to exclude.
+///
+/// @return {selector} The selector excluding the `:not()` matches.
+///
+/// @access public
+///
+@function exclude($selector, $args...) {
+    @return selector.append($selector, ":not(#{$args})");
+}
+
+///
+/// @example - scss
 ///   $selector: to-id("foo");
 ///   // "#foo"
 ///

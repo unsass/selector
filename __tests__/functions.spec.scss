@@ -53,4 +53,110 @@
             }
         }
     }
+
+    @include describe("is()") {
+        @include it("Should wrap the arguments in an `:is()` pseudo-class.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.is("article", "h1", "h2")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    article:is(h1, h2) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("where()") {
+        @include it("Should wrap the arguments in a `:where()` pseudo-class.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.where(".prose", "a", "button")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .prose:where(a, button) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("has()") {
+        @include it("Should wrap the arguments in a `:has()` pseudo-class.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.has(".card", "> img")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .card:has(> img) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("exclude()") {
+        @include it("Should wrap the arguments in a `:not()` pseudo-class.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.exclude(".btn", ".btn--disabled")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .btn:not(.btn--disabled) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should accept several selectors to exclude.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.exclude(".item", ".a", ".b")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .item:not(.a, .b) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("composition") {
+        @include it("Should chain functional pseudo-classes.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.exclude(selector.is(".x", "a", "b"), ".y")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .x:is(a, b):not(.y) {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
 }
