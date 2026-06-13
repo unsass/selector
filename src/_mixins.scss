@@ -158,12 +158,12 @@
 ///     }
 ///   }
 ///
-/// @param {string} $args - The media query condition.
+/// @param {string} $query - The media query condition.
 ///
 /// @access public
 ///
-@mixin media($args) {
-    @media #{$args} {
+@mixin media($query) {
+    @media #{$query} {
         @content;
     }
 }

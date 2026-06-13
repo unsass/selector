@@ -180,7 +180,7 @@ Wrap the selector with an `@at-root` rule before code output.
 }
 ```
 
-### `media($args)`
+### `media($query)`
 
 Wraps the content in a `@media` rule.
 
@@ -204,7 +204,7 @@ Wraps the content in a `@media` rule.
 
 ## Functions
 
-### `to-class($selector)`
+### `to-class($name)`
 
 Returns a class selector from a name.
 
@@ -214,7 +214,7 @@ Returns a class selector from a name.
 $selector: selector.to-class("foo"); // ".foo"
 ```
 
-### `to-id($selector)`
+### `to-id($name)`
 
 Returns an id selector from a name.
 

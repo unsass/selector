@@ -53,14 +53,14 @@
 ///   $selector: to-id("foo");
 ///   // "#foo"
 ///
-/// @param {string} $selector - Selector name (without the leading `#`).
+/// @param {string} $name - Selector name (without the leading `#`).
 ///
 /// @return {string} The id selector.
 ///
 /// @access public
 ///
-@function to-id($selector) {
-    @return "##{$selector}";
+@function to-id($name) {
+    @return "##{$name}";
 }
 
 ///
@@ -68,12 +68,12 @@
 ///   $selector: to-class("foo");
 ///   // ".foo"
 ///
-/// @param {string} $selector - Selector name (without the leading `.`).
+/// @param {string} $name - Selector name (without the leading `.`).
 ///
 /// @return {string} The class selector.
 ///
 /// @access public
 ///
-@function to-class($selector) {
-    @return ".#{$selector}";
+@function to-class($name) {
+    @return ".#{$name}";
 }
