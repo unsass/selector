@@ -55,6 +55,42 @@
             }
         }
 
+        @include it("Should strip the leading dot from a class selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create(".foo") {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
+        @include it("Should return a descendant selector with `&` nesting.") {
+            @include assert {
+                @include output(false) {
+                    .foo {
+                        .bar {
+                            @include selector.create(&, "md", $root: true) {
+                                color: darkcyan;
+                            }
+                        }
+                    }
+                }
+
+                @include expect(false) {
+                    .md\:foo .bar {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
         @include it("Should return class selector with `&` nesting.") {
             @include assert {
                 @include output(false) {
@@ -121,6 +157,22 @@
             }
         }
 
+        @include it("Should return a suffixed scoped multiclasses selector.") {
+            @include assert {
+                @include output(false) {
+                    @include selector.create("foo", ("md", "lg"), $suffix: true) {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo\:md\:lg {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+
         @include it("Should return a suffixed scoped class selector with number.") {
             @include assert {
                 @include output(false) {
@@ -153,7 +205,7 @@
             }
         }
 
-        @include it("Should return class selector with pseudo-classe.") {
+        @include it("Should return class selector with pseudo-class.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", $pseudo-class: "hover") {
@@ -169,7 +221,7 @@
             }
         }
 
-        @include it("Should return a scoped class selector with pseudo-classe.") {
+        @include it("Should return a scoped class selector with pseudo-class.") {
             @include assert {
                 @include output(false) {
                     @include selector.create("foo", "hover", $pseudo-class: "hover") {

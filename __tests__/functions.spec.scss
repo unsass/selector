@@ -17,4 +17,40 @@
             @include assert-equal(selector.to-id("foo"), "#foo");
         }
     }
+
+    @include describe("pseudo-class()") {
+        @include it("Should append a pseudo-class to the selector.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.pseudo-class(".foo", "hover")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo:hover {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
+
+    @include describe("pseudo-element()") {
+        @include it("Should append a pseudo-element to the selector.") {
+            @include assert {
+                @include output(false) {
+                    #{selector.pseudo-element(".foo", "before")} {
+                        color: darkcyan;
+                    }
+                }
+
+                @include expect(false) {
+                    .foo::before {
+                        color: darkcyan;
+                    }
+                }
+            }
+        }
+    }
 }
