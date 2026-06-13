@@ -6,7 +6,9 @@
 
 ## Introduction
 
-Sass functions and mixins to manage CSS selectors.
+A small Sass toolkit for building CSS selectors programmatically. Compose scoped, prefixed or suffixed class names with
+pseudo-classes, pseudo-elements and `@at-root` support through concise, composable mixins and helpers, so selector logic
+stays readable and consistent.
 
 <div align="center">
 
