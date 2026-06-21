@@ -1,54 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="100%" style="display:block">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" style="display:block">
     <defs>
         <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-            <circle cx="0.8" cy="0.8" r="0.7" fill="#fff" opacity="0.05"/>
+            <circle cx="0.8" cy="0.8" r="0.7" fill="#fff" opacity="0.04"/>
         </pattern>
+        <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#0b5d58"/>
+            <stop offset="0.5" stop-color="#129b95"/>
+            <stop offset="1" stop-color="#1ad1cb"/>
+        </linearGradient>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0b5d58"/>
+            <stop offset="0.5" stop-color="#129b95"/>
+            <stop offset="1" stop-color="#1ad1cb"/>
+        </linearGradient>
+        <clipPath id="frame">
+            <rect width="800" height="360" rx="12"/>
+        </clipPath>
     </defs>
 
-    <rect width="800" height="340" fill="#1d242a"/>
-    <rect width="800" height="340" fill="url(#dots)"/>
-    <rect width="800" height="340" rx="12" fill="none" stroke="#33403f"/>
-    <rect width="800" height="2.5" fill="#1ad1cb" opacity="0.9"/>
+    <!-- everything is clipped to the rounded frame so corners and the top bar follow the radius -->
+    <g clip-path="url(#frame)">
+        <rect width="800" height="360" fill="#101a24"/>
+        <rect width="800" height="360" fill="url(#dots)"/>
+        <rect width="800" height="2.5" fill="url(#bar)" opacity="0.95"/>
 
-    <!-- selected element icon -->
-    <g transform="translate(400, 44)">
-        <rect x="-26" y="-18" width="52" height="36" rx="4" fill="none" stroke="#1ad1cb" stroke-width="1.2"
-              stroke-dasharray="4 3" opacity="0.55"/>
-        <rect x="-15" y="-9" width="30" height="18" rx="3" fill="#1ad1cb" fill-opacity="0.18" stroke="#1ad1cb"
-              stroke-width="1.5"/>
-        <g fill="#1ad1cb">
-            <rect x="-28" y="-20" width="4" height="4"/>
-            <rect x="24" y="-20" width="4" height="4"/>
-            <rect x="-28" y="16" width="4" height="4"/>
-            <rect x="24" y="16" width="4" height="4"/>
+        <!-- selected element icon -->
+        <g transform="translate(400, 46)">
+            <rect x="-26" y="-18" width="52" height="36" rx="4" fill="none" stroke="#1ad1cb" stroke-width="1.2"
+                  stroke-dasharray="4 3" opacity="0.55"/>
+            <rect x="-15" y="-9" width="30" height="18" rx="3" fill="#1ad1cb" fill-opacity="0.18" stroke="#1ad1cb"
+                  stroke-width="1.5"/>
+            <g fill="#1ad1cb">
+                <rect x="-28" y="-20" width="4" height="4"/>
+                <rect x="24" y="-20" width="4" height="4"/>
+                <rect x="-28" y="16" width="4" height="4"/>
+                <rect x="24" y="16" width="4" height="4"/>
+            </g>
+        </g>
+
+        <!-- wordmark -->
+        <!-- "selector" wordmark, outlined in Montserrat SemiBold -->
+        <path fill="#eeeeee"
+              d="M351.20 105.17Q349.52 105.17 347.99 104.75Q346.45 104.33 345.55 103.67L346.75 101.30Q347.63 101.90 348.89 102.26Q350.15 102.63 351.40 102.63Q352.90 102.63 353.55 102.22Q354.20 101.83 354.20 101.15Q354.20 100.50 353.60 100.21Q353 99.92 352.06 99.78Q351.13 99.63 350.07 99.45Q349.02 99.28 348.09 98.90Q347.15 98.53 346.55 97.76Q345.95 97 345.95 95.67Q345.95 93.78 347.54 92.64Q349.13 91.50 351.82 91.50Q353.15 91.50 354.54 91.80Q355.92 92.10 356.82 92.65L355.63 95.03Q354.67 94.47 353.71 94.25Q352.75 94.03 351.80 94.03Q350.38 94.03 349.69 94.45Q349 94.88 349 95.53Q349 96.20 349.60 96.53Q350.20 96.85 351.14 97Q352.07 97.15 353.13 97.34Q354.17 97.53 355.11 97.90Q356.05 98.28 356.65 99.01Q357.25 99.75 357.25 101.05Q357.25 102.92 355.63 104.05Q354 105.17 351.20 105.17M367.22 105.17Q365 105.17 363.34 104.29Q361.67 103.40 360.76 101.86Q359.85 100.33 359.85 98.33Q359.85 96.33 360.74 94.79Q361.63 93.25 363.19 92.38Q364.75 91.50 366.75 91.50Q368.70 91.50 370.22 92.35Q371.75 93.20 372.63 94.76Q373.50 96.33 373.50 98.40Q373.50 98.60 373.49 98.85Q373.47 99.10 373.45 99.33L362.97 99.33Q363.25 100.78 364.40 101.65Q365.55 102.53 367.30 102.53Q369.52 102.53 370.92 101.08L372.60 103Q370.75 105.17 367.22 105.17M362.95 97.25L370.52 97.25Q370.32 95.80 369.30 94.90Q368.27 94 366.75 94Q365.22 94 364.20 94.89Q363.17 95.78 362.95 97.25M380.63 105L377.50 105L377.50 86.45L380.63 86.45L380.63 105M392 105.17Q389.78 105.17 388.11 104.29Q386.45 103.40 385.54 101.86Q384.63 100.33 384.63 98.33Q384.63 96.33 385.51 94.79Q386.40 93.25 387.96 92.38Q389.53 91.50 391.53 91.50Q393.48 91.50 395 92.35Q396.53 93.20 397.40 94.76Q398.28 96.33 398.28 98.40Q398.28 98.60 398.26 98.85Q398.25 99.10 398.23 99.33L387.75 99.33Q388.03 100.78 389.18 101.65Q390.32 102.53 392.07 102.53Q394.30 102.53 395.70 101.08L397.38 103Q395.53 105.17 392 105.17M387.73 97.25L395.30 97.25Q395.10 95.80 394.07 94.90Q393.05 94 391.53 94Q390 94 388.98 94.89Q387.95 95.78 387.73 97.25M408.40 105.17Q406.30 105.17 404.66 104.29Q403.03 103.40 402.10 101.86Q401.18 100.33 401.18 98.33Q401.18 96.33 402.10 94.79Q403.03 93.25 404.66 92.38Q406.30 91.50 408.40 91.50Q410.35 91.50 411.84 92.29Q413.33 93.08 414.10 94.60L411.70 96Q411.10 95.05 410.24 94.60Q409.38 94.15 408.38 94.15Q406.65 94.15 405.49 95.28Q404.33 96.40 404.33 98.33Q404.33 100.28 405.49 101.39Q406.65 102.50 408.38 102.50Q409.38 102.50 410.24 102.05Q411.10 101.60 411.70 100.65L414.10 102.05Q413.33 103.55 411.84 104.36Q410.35 105.17 408.40 105.17M422.82 105.17Q420.63 105.17 419.43 104.04Q418.23 102.90 418.23 100.67L418.23 94.15L416.02 94.15L416.02 91.65L418.23 91.65L418.23 88.70L421.35 88.70L421.35 91.65L424.93 91.65L424.93 94.15L421.35 94.15L421.35 100.60Q421.35 101.58 421.82 102.09Q422.30 102.60 423.20 102.60Q424.23 102.60 424.95 102.05L425.82 104.28Q425.25 104.72 424.46 104.95Q423.68 105.17 422.82 105.17M435.40 105.17Q433.35 105.17 431.75 104.29Q430.15 103.40 429.23 101.86Q428.30 100.33 428.30 98.33Q428.30 96.33 429.23 94.79Q430.15 93.25 431.75 92.38Q433.35 91.50 435.40 91.50Q437.48 91.50 439.09 92.38Q440.70 93.25 441.61 94.79Q442.53 96.33 442.53 98.33Q442.53 100.33 441.61 101.86Q440.70 103.40 439.09 104.29Q437.48 105.17 435.40 105.17M435.40 102.50Q437.13 102.50 438.25 101.38Q439.38 100.25 439.38 98.33Q439.38 96.40 438.25 95.28Q437.13 94.15 435.40 94.15Q434.28 94.15 433.39 94.66Q432.50 95.17 431.98 96.11Q431.45 97.05 431.45 98.33Q431.45 99.60 431.98 100.54Q432.50 101.47 433.39 101.99Q434.28 102.50 435.40 102.50M449.65 105L446.53 105L446.53 91.65L449.50 91.65L449.50 93.60Q450.88 91.50 454.25 91.50L454.25 94.47Q454.05 94.45 453.88 94.42Q453.70 94.40 453.53 94.40Q451.75 94.40 450.70 95.44Q449.65 96.47 449.65 98.53L449.65 105Z"/>
+        <text x="400" y="127" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11"
+              fill="#1ad1cb" opacity="0.8">Sass functions and mixins to manage CSS selectors
+        </text>
+
+        <!-- code mockup: install + use -->
+        <rect x="130" y="152" width="540" height="168" rx="10" fill="#0c141d" stroke="#243341"/>
+        <rect x="130" y="152" width="540" height="28" rx="10" fill="#16212c"/>
+        <rect x="130" y="170" width="540" height="10" fill="#16212c"/>
+        <line x1="130" y1="180" x2="670" y2="180" stroke="#243341" stroke-width="0.75"/>
+        <circle cx="152" cy="166" r="4.5" fill="#ff5f57"/>
+        <circle cx="168" cy="166" r="4.5" fill="#febc2e"/>
+        <circle cx="184" cy="166" r="4.5" fill="#28c840"/>
+
+        <g font-family="ui-monospace,Menlo,monospace" font-size="13">
+            <text x="150" y="212">
+                <tspan fill="#1ad1cb">@use</tspan>
+                <tspan fill="#7fd88f">"@unsass/selector"</tspan>
+                <tspan fill="#c8d0d4">;</tspan>
+            </text>
+            <text x="150" y="254">
+                <tspan fill="#1ad1cb">@include</tspan>
+                <tspan fill="#c8d0d4">selector.create(</tspan>
+                <tspan fill="#7fd88f">"foo"</tspan>
+                <tspan fill="#c8d0d4">,</tspan>
+                <tspan fill="#7fd88f">"md"</tspan>
+                <tspan fill="#c8d0d4">) {</tspan>
+            </text>
+            <text x="174" y="276">
+                <tspan fill="#c8d0d4">color:</tspan>
+                <tspan fill="#e0a973">darkcyan</tspan>
+                <tspan fill="#c8d0d4">;</tspan>
+            </text>
+            <text x="150" y="298">
+                <tspan fill="#c8d0d4">}</tspan>
+            </text>
         </g>
     </g>
 
-    <!-- "selector" wordmark in Montserrat Medium (matches the docs display font) -->
-    <text x="400" y="102" text-anchor="middle" font-size="30" font-weight="500" fill="#eeeeee" letter-spacing="0.5"
-          font-family="Montserrat,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif">selector</text>
-    <text x="400" y="124" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11"
-          fill="#1ad1cb" opacity="0.8">Sass functions and mixins to manage CSS selectors</text>
-
-    <!-- code mockup: install + use -->
-    <rect x="130" y="148" width="540" height="158" rx="10" fill="#151c22" stroke="#2c3942"/>
-    <rect x="130" y="148" width="540" height="28" rx="10" fill="#19232b"/>
-    <rect x="130" y="166" width="540" height="10" fill="#19232b"/>
-    <line x1="130" y1="176" x2="670" y2="176" stroke="#2c3942" stroke-width="0.75"/>
-    <circle cx="152" cy="162" r="4.5" fill="#ff5f57"/>
-    <circle cx="168" cy="162" r="4.5" fill="#febc2e"/>
-    <circle cx="184" cy="162" r="4.5" fill="#28c840"/>
-
-    <g font-family="ui-monospace,Menlo,monospace" font-size="13">
-        <text x="150" y="204">
-            <tspan fill="#1ad1cb">@use </tspan><tspan fill="#7fd88f">"@unsass/selector"</tspan><tspan fill="#c8d0d4">;</tspan>
-        </text>
-        <text x="150" y="246">
-            <tspan fill="#1ad1cb">@include</tspan><tspan fill="#c8d0d4"> selector.create(</tspan><tspan fill="#7fd88f">"foo"</tspan><tspan fill="#c8d0d4">, </tspan><tspan fill="#7fd88f">"md"</tspan><tspan fill="#c8d0d4">) {</tspan>
-        </text>
-        <text x="174" y="268">
-            <tspan fill="#c8d0d4">color: </tspan><tspan fill="#e0a973">darkcyan</tspan><tspan fill="#c8d0d4">;</tspan>
-        </text>
-        <text x="150" y="290"><tspan fill="#c8d0d4">}</tspan></text>
-    </g>
+    <!-- crisp rounded border drawn on top, aligned with the clipped fill -->
+    <rect x="0.5" y="0.5" width="799" height="359" rx="11.5" fill="none" stroke="#2a3a47"/>
 </svg>
