@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.0](https://github.com/unsass/selector/compare/v1.5.0...v1.6.0) (2026-09-19)
+
+### Dependencies
+
+* **deps:** require node >=22 ([fc20214](https://github.com/unsass/selector/commit/fc20214fb8a6187cadadbf51c6d082aa9da25e0d))
+
 ## [1.5.0](https://github.com/unsass/selector/compare/v1.4.0...v1.5.0) (2026-06-13)
 
 ### Features
